@@ -17,9 +17,11 @@ gem 'html2slim'
 gem 'bootstrap'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_autolink'
+gem 'rspec-rails', '~> 3.7'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails', '~> 4.11'
 end
 
 group :development do
