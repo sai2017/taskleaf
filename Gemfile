@@ -17,7 +17,6 @@ gem 'html2slim'
 gem 'bootstrap'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_autolink'
-gem 'rspec-rails', '~> 3.7'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -35,6 +34,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
