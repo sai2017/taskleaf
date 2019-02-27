@@ -35,3 +35,7 @@ table.table.table-hover
 
 / URLを生成する際にformat: :csvという指定をすることで、/tasks.csvというURLを生成している
 = link_to 'エクスポート', tasks_path(format: :csv), class: 'btn btn-primary mb-3'
+
+= form_tag import_tasks_path, multipart: true, class: 'mb-3' do
+  = file_field_tag :file
+  = submit_tag "インポート", class: 'btn btn-primary'

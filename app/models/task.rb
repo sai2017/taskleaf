@@ -27,6 +27,18 @@ class Task < ApplicationRecord
     end
   end
 
+  # fileという名前の引数で、アップロードされたファイルの内容にアクセスするためのオブジェクトを受け取る
+  def self.import(file)
+    # CSV.foreachを使ってCSVファイルを一行ずつ読み込む。headers: trueの指定により、1行目をヘッダとして無視するようにしている
+    CSV.foreach(file.path, headers: true) do |row|
+      # CSV一行ごとにTaskインスタンスを生成する（newはTask.newと同意）
+      task = new
+      # 生成されたTaskインスタンスの各属性にCSVの一行の情報を加工して入れ込む
+      task.attributes = row.to_hash.slice(*csv_attributes)
+      task.save!
+    end
+  end
+
   private
 
   def set_nameless_name
