@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: taskleaf_production
-  username: taskleaf
-  password: <%= ENV['TASKLEAF_DATABASE_PASSWORD'] %>
+  # username: taskleaf
+  # password: <%= ENV['TASKLEAF_DATABASE_PASSWORD'] %>
