@@ -10,6 +10,23 @@ class Task < ApplicationRecord
 
   scope :recent, -> { order(created_at: :desc) }
 
+  def self.csv_attributes
+    # CSVデータにどの属性をどの順番で出力するかを定義
+    ["name", "description", "created_at", "updated_at"]
+  end
+
+  def self.generate_csv
+    # CSV.generateを使ってCSVデータの文字列を生成する
+    CSV.generate(headers: true) do |csv|
+      # CSVの一行目としてヘッダを出力する
+      csv << csv_attributes
+      # allメソッドで全タスクを取得し、1レコードごとにCSVの1行目を出力する
+      all.each do |task|
+        csv << csv_attributes.map{ |attr| task.send(attr) }
+      end
+    end
+  end
+
   private
 
   def set_nameless_name
