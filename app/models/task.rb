@@ -17,4 +17,12 @@ class Task < ApplicationRecord
     # 名前にカンマが含まれていたら、errorsにエラー内容を格納する
     errors.add(:name, 'にカンマを含めることはできません') if name&.include?(',')
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name created_at]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end
