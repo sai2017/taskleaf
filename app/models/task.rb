@@ -1,4 +1,7 @@
 class Task < ApplicationRecord
+  # 一つのタスクに一つの画像を紐付ける
+  # :imageはファイルの呼び名
+  has_one_attached :image
   before_validation :set_nameless_name
   validates :name, presence: true, length: { maximum: 30 }
   validate :validate_name_not_including_comma
