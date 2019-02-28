@@ -20,6 +20,7 @@ gem 'rails_autolink'
 gem 'ransack'
 gem 'kaminari'
 gem 'sidekiq'
+gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
